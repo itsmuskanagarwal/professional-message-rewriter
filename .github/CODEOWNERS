@@ -1,0 +1,8 @@
+# Code ownership for ToneWise — mirrors Section 8 of the master spec.
+# Replace usernames once the team is staffed.
+
+/apps/web/                @frontend-architect
+/apps/extension/          @frontend-architect
+/packages/agents/         @backend-architect
+/.github/                 @engineering-lead
+/docs/                    @engineering-lead

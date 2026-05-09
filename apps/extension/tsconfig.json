@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "paths": {
+      "~/*": ["./*"],
+      "@tonewise/agents": ["../../packages/agents/src"],
+      "@tonewise/agents/*": ["../../packages/agents/src/*"]
+    }
+  },
+  "include": [".plasmo/index.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "build", ".plasmo"]
+}

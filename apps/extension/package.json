@@ -1,0 +1,39 @@
+{
+  "name": "@tonewise/extension",
+  "displayName": "ToneWise",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Rewrite Slack, email, and Jira messages with the right tone — directly in the browser.",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "package": "plasmo package",
+    "build:firefox": "plasmo build --target=firefox-mv2",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@tonewise/agents": "workspace:*",
+    "plasmo": "^0.88.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.270",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "vitest": "^2.0.5"
+  },
+  "manifest": {
+    "host_permissions": [
+      "https://*.slack.com/*",
+      "https://mail.google.com/*",
+      "https://*.atlassian.net/*",
+      "https://teams.microsoft.com/*",
+      "https://*.linkedin.com/*"
+    ],
+    "permissions": ["storage", "activeTab"]
+  }
+}
