@@ -28,6 +28,9 @@ export async function intentClassifier(message: string): Promise<Intent> {
     messages: [{ role: 'user', content: message }],
   });
 
-  const raw = extractText(response).trim().toLowerCase().replace(/[^a-z]/g, '');
+  const raw = extractText(response)
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z]/g, '');
   return VALID.has(raw as Intent) ? (raw as Intent) : 'neutral';
 }

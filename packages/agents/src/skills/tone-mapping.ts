@@ -25,7 +25,7 @@ const SPECS: Readonly<Record<TonePreset, TonePromptSpec>> = {
     examples: [],
     doRules: [
       'Use polite framing ("would you be able to", "when you have a moment")',
-      'Acknowledge the reader\'s time or effort once, briefly',
+      "Acknowledge the reader's time or effort once, briefly",
       'Keep sentences direct and uncluttered',
     ],
     dontRules: [

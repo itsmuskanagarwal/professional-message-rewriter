@@ -42,16 +42,16 @@ pnpm dev                                        # runs web + extension in parall
 
 ## Day-to-day commands
 
-| Command                 | What it does                                         |
-| ----------------------- | ---------------------------------------------------- |
-| `pnpm dev`              | Run all workspaces' dev servers in parallel          |
-| `pnpm build`            | Production build for every workspace                 |
-| `pnpm test`             | Run unit + integration tests across workspaces       |
-| `pnpm lint`             | ESLint across the monorepo                           |
-| `pnpm typecheck`        | `tsc --noEmit` per workspace                         |
-| `pnpm format`           | Prettier write across all source files               |
-| `pnpm --filter @tonewise/web dev`       | Just the web app                       |
-| `pnpm --filter @tonewise/extension dev` | Just the extension                     |
+| Command                                 | What it does                                   |
+| --------------------------------------- | ---------------------------------------------- |
+| `pnpm dev`                              | Run all workspaces' dev servers in parallel    |
+| `pnpm build`                            | Production build for every workspace           |
+| `pnpm test`                             | Run unit + integration tests across workspaces |
+| `pnpm lint`                             | ESLint across the monorepo                     |
+| `pnpm typecheck`                        | `tsc --noEmit` per workspace                   |
+| `pnpm format`                           | Prettier write across all source files         |
+| `pnpm --filter @tonewise/web dev`       | Just the web app                               |
+| `pnpm --filter @tonewise/extension dev` | Just the extension                             |
 
 ## How Claude Code is used here
 

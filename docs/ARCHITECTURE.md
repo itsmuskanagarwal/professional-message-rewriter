@@ -61,18 +61,18 @@ tonewise/
 
 ## 3. Tech stack (frozen for V1)
 
-| Layer            | Choice                       | Why                                                 |
-| ---------------- | ---------------------------- | --------------------------------------------------- |
-| Frontend         | Next.js 14 App Router        | SSR + Edge runtime, easy extension transpilation    |
-| Styling          | Tailwind CSS                 | Token-friendly, no runtime CSS-in-JS                |
-| Extension        | Plasmo                       | React-based, MV3 + MV2 in one source                |
-| LLM              | Anthropic Claude Haiku       | Cost + latency profile fits free-tier rewrites      |
-| Rate limit       | Upstash Redis sliding window | 10 req / 24h per IP+UA hash, free tier sufficient   |
-| Analytics        | PostHog (cloud free tier)    | Privacy-first, no login flow needed                 |
-| Error tracking   | Sentry                       | Existing free tier; only collects stack frames      |
-| CI/CD            | GitHub Actions → Vercel      | Zero infra; Vercel's edge handles `/api/rewrite`    |
-| Package manager  | pnpm 9 + workspaces          | Disk-efficient, deterministic, first-class monorepo |
-| Language         | TypeScript 5.5 (strict)      | One std for both surfaces                           |
+| Layer           | Choice                       | Why                                                 |
+| --------------- | ---------------------------- | --------------------------------------------------- |
+| Frontend        | Next.js 14 App Router        | SSR + Edge runtime, easy extension transpilation    |
+| Styling         | Tailwind CSS                 | Token-friendly, no runtime CSS-in-JS                |
+| Extension       | Plasmo                       | React-based, MV3 + MV2 in one source                |
+| LLM             | Anthropic Claude Haiku       | Cost + latency profile fits free-tier rewrites      |
+| Rate limit      | Upstash Redis sliding window | 10 req / 24h per IP+UA hash, free tier sufficient   |
+| Analytics       | PostHog (cloud free tier)    | Privacy-first, no login flow needed                 |
+| Error tracking  | Sentry                       | Existing free tier; only collects stack frames      |
+| CI/CD           | GitHub Actions → Vercel      | Zero infra; Vercel's edge handles `/api/rewrite`    |
+| Package manager | pnpm 9 + workspaces          | Disk-efficient, deterministic, first-class monorepo |
+| Language        | TypeScript 5.5 (strict)      | One std for both surfaces                           |
 
 ## 4. Pipeline contract (`@tonewise/agents`)
 
@@ -83,7 +83,7 @@ export async function POST(req: Request) {
   const limit = await ipRateLimiter(ip, fingerprint);
   if (!limit.success) return rateLimited(limit);
 
-  const body = await req.json() as RewriteRequest;
+  const body = (await req.json()) as RewriteRequest;
   const result = await toneOrchestrator(body); // <-- packages/agents
   return Response.json(result, {
     headers: { 'X-RateLimit-Remaining': String(limit.remaining) },
@@ -155,7 +155,7 @@ Extension is shipped manually to Chrome Web Store + Firefox Add-ons during P3.
 | P1    | Pipeline returns valid `RewriteResult` for all 5 presets · Rate limit live   |
 | P2    | Web app passes Lighthouse ≥ 95 · Mobile responsive at 360px · A11y AA        |
 | P3    | Extension loads on Slack, Gmail, Jira · 3-second p95 round-trip end-to-end   |
-| P4    | Privacy Policy + ToS published · Extensions submitted · Beta launch         |
+| P4    | Privacy Policy + ToS published · Extensions submitted · Beta launch          |
 
 ## 9. Open architecture questions
 

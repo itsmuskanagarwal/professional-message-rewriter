@@ -16,14 +16,10 @@ export async function rewriteAgent(input: RewriteAgentInput): Promise<string> {
 
   const platformLines = [
     `Platform: ${input.platform} (formality floor: ${platform.formalityFloor})`,
-    platform.maxSentences
-      ? `Hard cap: ${platform.maxSentences} sentences.`
-      : 'No sentence cap.',
+    platform.maxSentences ? `Hard cap: ${platform.maxSentences} sentences.` : 'No sentence cap.',
     platform.needsSalutation ? 'Include an opening greeting.' : 'No greeting needed.',
     platform.needsSignoff ? 'Include a closing sign-off.' : 'No sign-off needed.',
-    platform.bannedTokens.length
-      ? `Avoid these phrases: ${platform.bannedTokens.join(', ')}.`
-      : '',
+    platform.bannedTokens.length ? `Avoid these phrases: ${platform.bannedTokens.join(', ')}.` : '',
   ].filter(Boolean);
 
   const systemPrompt = [

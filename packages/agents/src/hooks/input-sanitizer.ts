@@ -37,10 +37,7 @@ export function inputSanitizer(text: string): SanitizeResult {
   return { sanitized, placeholders };
 }
 
-export function restorePlaceholders(
-  text: string,
-  placeholders: Record<string, string>,
-): string {
+export function restorePlaceholders(text: string, placeholders: Record<string, string>): string {
   let result = text;
   for (const [token, original] of Object.entries(placeholders)) {
     result = result.split(token).join(original);

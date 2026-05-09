@@ -34,6 +34,9 @@
       "https://teams.microsoft.com/*",
       "https://*.linkedin.com/*"
     ],
-    "permissions": ["storage", "activeTab"]
+    "permissions": [
+      "storage",
+      "activeTab"
+    ]
   }
 }
